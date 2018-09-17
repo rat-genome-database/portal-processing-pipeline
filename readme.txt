@@ -1,0 +1,39 @@
+ver 1.2.6, Sep 17, 2018
+  moved to github
+
+ver 1.2.5, Sep 9, 2018
+  tuned up logging
+
+ver 1.2.4, Oct 23, 2017
+  no longer exports into xml objects without positions
+
+ver 1.2.3, Sep 27, 2017
+  fixed computation of annot_obj_cnt_rat (it was using anot_cnt_rat)
+
+ver 1.2.2, Aug 29, 2017
+  portals processed are determined by querying the table PORTAL1:
+    select * from portal1 where portal_key=master_portal_key and portal_type='Standard'
+
+ver 1.2.1, May 22, 2017
+  updated from java 7 to java 8
+
+ver 1.2.0, Jan 16, 2017
+  updated build from ANT to GRADLE
+
+ver 1.1.9, Aug 24, 2016
+  added 'blood' portal
+
+ver 1.1.8, Mar 23, 2016
+  added caching of object positions to significantly reduce number of queries to MAPS_DATA table
+
+ver 1.1.7, Mar 23, 2016
+  added optional command line parameters: '-skipPortals', '-skipOntologies', '-skipObjects'
+
+ver 1.1.6, Mar 9, 2016
+  updated rgdcore - per RGDD-1126
+
+ver 1.1.5, Nov 24, 2015
+  added 'aging' portal
+
+ver 1.1.4, Jan 19, 2015
+  improved logging, updated jars

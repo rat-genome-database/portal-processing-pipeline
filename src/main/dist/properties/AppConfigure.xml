@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
     <bean id="manager" class="edu.mcw.rgd.pipelines.PortalProcessing.Manager">
-        <property name="version" value="PortalProcessing pipeline, ver. 1.2.6 (Sep 17, 2018)" />
+        <property name="version" value="PortalProcessing pipeline, ver. 1.2.7 (Dec 19, 2018)" />
         <property name="ontologiesProcessed">
             <list>
                 <value>bo</value>

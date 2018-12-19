@@ -1,3 +1,6 @@
+ver 1.2.7, Dec 19, 2018
+  updated dependencies; tuned up build.gradle
+
 ver 1.2.6, Sep 17, 2018
   moved to github
 

@@ -5,6 +5,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.FileSystemResource;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,8 +54,12 @@ public class Manager {
 
     void run(boolean processPortals, boolean processOntologies, boolean processObjects) throws Exception {
 
-        log.info(getVersion());
         long startTime = System.currentTimeMillis();
+
+        log.info(getVersion());
+        log.info("   started at: "+getCurrentTimestamp());
+        log.info("   " + dao.getConnectionInfo());
+        log.info("");
 
         if( processPortals ) {
             // populate all portals
@@ -94,7 +101,11 @@ public class Manager {
             log.info("OK. Populated PORTAL_OBJECTS table");
         }
 
-        log.info("Finished! Elapsed: "+ Utils.formatElapsedTime(startTime, System.currentTimeMillis()));
+        log.info("");
+        log.info("   finished at: "+getCurrentTimestamp());
+        log.info("=== OK === elapsed: "+ Utils.formatElapsedTime(startTime, System.currentTimeMillis()));
+        log.info("");
+        log.info("==========");
     }
 
     void populatePortal(String portal) throws Exception {
@@ -111,6 +122,11 @@ public class Manager {
         PopulatePortal pp = new PopulatePortal(ont);
         pp.setDao(dao);
         pp.runOntology();
+    }
+
+    String getCurrentTimestamp() {
+        SimpleDateFormat sdt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdt.format(new Date());
     }
 
     public void setOntologiesProcessed(List<String> ontologiesProcessed) {

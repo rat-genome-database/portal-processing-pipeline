@@ -1,3 +1,6 @@
+ver 1.2.8, Jan 2, 2019
+  logging tune up to generate more informative summary emails
+
 ver 1.2.7, Dec 19, 2018
   updated dependencies; tuned up build.gradle
 

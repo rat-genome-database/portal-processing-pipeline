@@ -24,6 +24,10 @@ public class Dao {
     private OntologyXDAO ontologyDAO = new OntologyXDAO();
     private PortalDAO portalDAO = new PortalDAO();
 
+    public String getConnectionInfo() {
+        return portalDAO.getConnectionInfo();
+    }
+
     /**
      * get a portal given url name; null if there is no portal with such an url
      * @param urlName url name

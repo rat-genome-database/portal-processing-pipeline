@@ -1,9 +1,6 @@
 package edu.mcw.rgd.pipelines.PortalProcessing;
 
-import edu.mcw.rgd.dao.impl.AnnotationDAO;
-import edu.mcw.rgd.dao.impl.MapDAO;
-import edu.mcw.rgd.dao.impl.OntologyXDAO;
-import edu.mcw.rgd.dao.impl.PortalDAO;
+import edu.mcw.rgd.dao.impl.*;
 import edu.mcw.rgd.datamodel.*;
 import edu.mcw.rgd.datamodel.ontology.Annotation;
 import edu.mcw.rgd.datamodel.ontologyx.Term;
@@ -23,6 +20,7 @@ public class Dao {
     private MapDAO mapDAO = new MapDAO();
     private OntologyXDAO ontologyDAO = new OntologyXDAO();
     private PortalDAO portalDAO = new PortalDAO();
+    private RGDManagementDAO rdao = new RGDManagementDAO();
 
     public String getConnectionInfo() {
         return portalDAO.getConnectionInfo();
@@ -292,5 +290,9 @@ public class Dao {
             }
         }
         return portalsProcessed;
+    }
+
+    public List<RgdId> getRgdIds(int objectKey, int speciesTypeKey) throws Exception {
+        return rdao.getRgdIds(objectKey, speciesTypeKey);
     }
 }

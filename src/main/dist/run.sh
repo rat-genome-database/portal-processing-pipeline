@@ -18,7 +18,7 @@ if [ "$SERVER" = "REED" ]; then
 fi
 
 cd $APPDIR
-java -Dspring.config=$APPDIR/../properties/default_db.xml \
+java -Dspring.config=$APPDIR/../properties/default_db2.xml \
     -Dlog4j.configuration=file://$APPDIR/properties/log4j.properties \
     -jar lib/${APPNAME}.jar "$@" > run.log 2>&1
 

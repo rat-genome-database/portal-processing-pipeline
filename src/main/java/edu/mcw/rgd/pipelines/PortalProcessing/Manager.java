@@ -131,6 +131,7 @@ public class Manager {
                 PopulatePortal pp = new PopulatePortal(ont);
                 pp.setDao(dao);
                 pp.runOntology();
+                return;
             } catch (Exception e) {
                 Utils.printStackTrace(e, log);
             }

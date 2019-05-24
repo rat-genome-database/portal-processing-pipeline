@@ -124,7 +124,7 @@ public class Manager {
                 log.info("=== retrying ["+retry+"]" );
                 log.info("");
             }
-            
+
             try {
                 log.info("Starting ontology " + ont);
 

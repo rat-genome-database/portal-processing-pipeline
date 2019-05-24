@@ -20,6 +20,7 @@ public class Manager {
     private List<String> ontologiesProcessed;
     private String version;
     private Logger log = Logger.getLogger("status");
+    private int retryCount;
 
     public static void main(String[] args) throws Exception {
 
@@ -117,11 +118,23 @@ public class Manager {
 
     void populateOnt(String ont) throws Exception {
 
-        log.info("Starting ontology "+ont);
+        for( int retry=0; retry<getRetryCount(); retry++ ) {
+            if( retry>0 ) {
+                log.info("");
+                log.info("=== retrying ["+retry+"]" );
+                log.info("");
+            }
+            
+            try {
+                log.info("Starting ontology " + ont);
 
-        PopulatePortal pp = new PopulatePortal(ont);
-        pp.setDao(dao);
-        pp.runOntology();
+                PopulatePortal pp = new PopulatePortal(ont);
+                pp.setDao(dao);
+                pp.runOntology();
+            } catch (Exception e) {
+                Utils.printStackTrace(e, log);
+            }
+        }
     }
 
     String getCurrentTimestamp() {
@@ -143,5 +156,13 @@ public class Manager {
 
     public String getVersion() {
         return version;
+    }
+
+    public void setRetryCount(int retryCount) {
+        this.retryCount = retryCount;
+    }
+
+    public int getRetryCount() {
+        return retryCount;
     }
 }

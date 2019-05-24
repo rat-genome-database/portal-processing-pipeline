@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
     <bean id="manager" class="edu.mcw.rgd.pipelines.PortalProcessing.Manager">
-        <property name="version" value="PortalProcessing pipeline, ver. 1.2.9 (Apr 17, 2019)" />
+        <property name="version" value="PortalProcessing pipeline, ver. 1.2.10 (May 24, 2019)" />
         <property name="ontologiesProcessed">
             <list>
                 <value>bo</value>
@@ -20,5 +20,6 @@
                 <value>gomp</value>
             </list>
         </property>
+        <property name="retryCount" value="3"/>
     </bean>
 </beans>
